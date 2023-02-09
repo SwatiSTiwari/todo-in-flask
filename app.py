@@ -27,24 +27,18 @@ with app.app_context():
 
 
 
-@app.route("/",methods=['get','post'])
+@app.route("/",methods=['GET','POST'])
 def hello_world():
-    if request.method=='post':
+    if request.method=='POST':
         title=request.form['title']
         desc=request.form['desc']
-        todo = Todo(title= title,desc=desc)
-        
-    # title=request.form['title']
-    # desc=request.form['desc']
-    # todo = Todo(title= title,desc=desc)
-        
-    
-    db.session.add(todo)
-    db.session.commit()
+        todo = Todo(title=title,desc=desc)
+        db.session.add(todo)
+        db.session.commit()
     allTodo= Todo.query.all()
-    print(title,desc)
     return render_template("index.html",allTodo=allTodo)
-
+        
+        
 
 
 @app.route("/show")
