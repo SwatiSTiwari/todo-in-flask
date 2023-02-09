@@ -1,0 +1,7 @@
+GraphQl is a query language for API
+
+
+=======================================================================================================================================
+     what is postman?
+ans>> 1) A postman is a API(application programming interface) development tool  that helps to build ,test , modify api
+      2) its is use by over 5 million developer every month to develop there api
