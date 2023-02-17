@@ -84,12 +84,7 @@
     </div>
     <div class="mb-3">
       <label for="description" class="form-label">description</label>
-      <input
-        type="password"
-        class="form-control"
-        name="desc"
-        id="description"
-      />
+      <input type="text" class="form-control" name="desc" id="description" />
     </div>
 
     <button type="submit" class="btn btn-primary">Submit</button>
@@ -102,15 +97,19 @@
         <th scope="col">Title</th>
         <th scope="col">description</th>
         <th scope="col">Time</th>
+        <th scope="col">Action</th>
       </tr>
     </thead>
     <tbody>
       {% for todo in allTodo %}
       <tr>
-        <th scope="row">{{todo.sno}}</th>
+        <th scope="row">{{loop.index}}</th>
         <td>{{todo.title}}</td>
         <td>{{todo.desc}}</td>
         <td>{{todo.date}}</td>
+        <td><a href="/update/{{todo.sno}}" type="button" class="btn btn-dark btn-sm mx-1">Update</button</td>
+        <td><a href="/delete/{{todo.sno}}" type="button" class="btn btn-dark btn-sm mx-1">Delete</button</td>
+
       </tr>
       {% endfor %}
     </tbody>

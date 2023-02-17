@@ -22,6 +22,7 @@ class Todo (db.Model):
     
 with app.app_context():
     db.create_all() 
+    
 
 
 
@@ -46,6 +47,19 @@ def products():
     allTodo= Todo.query.all()
     print(allTodo)
     return 'this is product page'
+
+@app.route("/update")
+def update():
+    allTodo= Todo.query.all()
+    print(allTodo)
+    return 'this is product page'
+
+@app.route("/delete/<int:sno>")
+def delete(sno):
+    todo= Todo.query.filter_by(sno=sno).first()
+    db.session.delete(todo)
+    db.session.commit()
+    return redirect("/")
     
 
 if __name__ == "__main__":
